@@ -33,7 +33,8 @@ namespace WpfApp2
                 MessageBox.Show("Enter something to the password field.");
                 return;
             }
-
+            MainTextingWindow textingWindow = new MainTextingWindow();
+            textingWindow.Show();
             // TODO : Checking credentials via DB
 
             // Connecting DB

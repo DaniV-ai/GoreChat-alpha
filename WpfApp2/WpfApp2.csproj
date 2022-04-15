@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Google_Contacts_icon.svg.png" />
     <None Remove="logo-image.png" />
   </ItemGroup>
 
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Google_Contacts_icon.svg.png" />
     <Resource Include="logo-image.png" />
   </ItemGroup>
 
