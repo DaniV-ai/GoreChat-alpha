@@ -28,6 +28,7 @@ namespace Entity_Classes
         public string Username { get; set; }
         [Required, MaxLength(200)]
         public string Email { get; set; }
+        [Required, MaxLength(200)]
         public string Hash { get; set; }
     }
 }
