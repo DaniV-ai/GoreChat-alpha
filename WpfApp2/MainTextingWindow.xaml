@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApp2.MainTextingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="GoreChat" Height="450" Width="800" Icon="/logo-image.png" ResizeMode="CanResizeWithGrip" Background="#1f1c59">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#141139">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox Background="#2D2A5A" Margin="5"></TextBox>
+            <ListBox 
+                Grid.Row="1" 
+                Background="Transparent"
+                BorderThickness="0">
+                <ListBoxItem>
+                    
+                </ListBoxItem>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image></Image>
+                            <TextBlock></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+        </Grid>
+        
+    </Grid>
+</Window>

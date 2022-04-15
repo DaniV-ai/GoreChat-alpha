@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-             Title="LoginWindow" Height="450" Width="800" Background="#1f1c59" ResizeMode="NoResize">
+        Title="GoreChat" Height="450" Width="800" Background="#1f1c59" ResizeMode="NoResize" Icon="/logo-image.png" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
