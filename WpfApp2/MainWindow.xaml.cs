@@ -24,7 +24,6 @@ namespace WpfApp2
         {
             InitializeComponent();
         }
-        // HELLO I LIKE MONEY AHAHHAHAHAHHHAH
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
