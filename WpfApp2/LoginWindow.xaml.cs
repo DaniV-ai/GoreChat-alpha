@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp2
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
         public LoginWindow()
@@ -38,6 +35,10 @@ namespace WpfApp2
             }
 
             // TODO : Checking credentials via DB
+
+            // Connecting DB
+            // Getting data from DB
+            // Comparing user data and data from DB
         }
     }
 }
