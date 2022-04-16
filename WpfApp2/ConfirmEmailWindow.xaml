@@ -48,7 +48,7 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Column="1" Margin="160,-465,-610,85" Panel.ZIndex="-1">
+        <Grid Name="Stripts" Grid.Column="1" Margin="160,-465,-610,85" Panel.ZIndex="-1">
             <Grid.RenderTransform>
                 <RotateTransform Angle="50"></RotateTransform>
             </Grid.RenderTransform>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="GoreChat" Height="450" Width="800" Icon="/logo-image.png" Background="#1f1c59">
+        Title="GoreChat" Height="450" Width="800" Icon="/logo-image.png" Background="#1f1c59" SizeChanged="Window_SizeChanged">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -65,6 +65,28 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="60"></RowDefinition>
             </Grid.RowDefinitions>
+
+            <Grid Margin="340,-365,-610,85" Panel.ZIndex="-1" >
+
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="50"></RotateTransform>
+                </Grid.RenderTransform>
+                <StackPanel Orientation="Horizontal" Margin="-350,250,-255,-250">
+                    <StackPanel>
+
+                        <Border CornerRadius="20" Background="#16b695" Width="700" Height="35" Margin="150,0,0,0"></Border>
+                        <Border CornerRadius="20" Background="#29518a" Width="700" Height="35" Margin="0,15,0,0"></Border>
+                        <Border CornerRadius="20" Background="#f47847" Width="700" Height="35" Margin="75,15,0,0" ></Border>
+                    </StackPanel>
+
+                    <StackPanel  Name="Stripts">
+
+                        <Border CornerRadius="20" Background="#16b695" Width="700" Height="35" Margin="50,0,0,0"></Border>
+                        <Border CornerRadius="20" Background="#29518a" Width="700" Height="35" Margin="0,15,0,0"></Border>
+                        <Border CornerRadius="20" Background="#f47847" Width="700" Height="35" Margin="75,15,0,0"></Border>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
             <TextBox Grid.Row="2">
                 <TextBox.Template>
                     <ControlTemplate>
@@ -87,6 +109,8 @@
             <Border Background="#141139">
                 <TextBlock  Foreground="White" FontSize="20" VerticalAlignment="Center" FontFamily="Comic Sans MS" Margin="10,0,0,0" >Name Chat</TextBlock>
             </Border>
+            
         </Grid>
-    </Grid>
+      
+        </Grid>
 </Window>
