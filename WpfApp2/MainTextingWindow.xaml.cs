@@ -27,9 +27,9 @@ namespace WpfApp2
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double height = this.ActualHeight-450;
-            //double width = 800- this.ActualWidth;
+             double width = 800- this.ActualWidth;
             //  MessageBox.Show($"{height}, {width}");
-            if (height > 0)
+            if (height >= 0 && width<=0)
             {
             Thickness thickness = new Thickness(height, 0, 0, 0);
             Stripts.Margin = thickness;
