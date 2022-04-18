@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="300" Width="650" Background="#1f1c59" ResizeMode="NoResize">
+        Title="GoreChat" Height="300" Width="650" Background="#1f1c59" ResizeMode="NoResize" Icon="/logo-image.png" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
@@ -48,7 +48,7 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Column="1" Margin="160,-465,-610,85" Panel.ZIndex="-1">
+        <Grid Name="Stripts" Grid.Column="1" Margin="160,-465,-610,85" Panel.ZIndex="-1">
             <Grid.RenderTransform>
                 <RotateTransform Angle="50"></RotateTransform>
             </Grid.RenderTransform>

@@ -1,0 +1,129 @@
+﻿<Window x:Class="WpfApp2.MainTextingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="GoreChat" Height="450" Width="800" Icon="/logo-image.png" Background="#1f1c59" SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#141139">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBox Height="35" BorderThickness="0">
+                <TextBox.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="5" BorderThickness="0" Background="#2D2A5A" Margin="5">
+                            <TextBox Background="Transparent" BorderThickness="0" FontSize="15" VerticalAlignment="Center" Foreground="white"></TextBox>
+                        </Border>
+                    </ControlTemplate>
+                </TextBox.Template>
+            </TextBox>
+            <ListBox 
+                Grid.Row="1" 
+                Background="Transparent"
+                BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Height="50" CornerRadius="4" Margin="8,2" Grid.Row="2">
+                            <StackPanel  Orientation="Horizontal" >
+
+                                <Image Source="/Google_Contacts_icon.svg.png" Height="30" Width="30" Margin="0,0,10,0"></Image>
+                                <StackPanel>
+                                    <TextBlock Foreground="White" FontFamily="Comic Sans MS" FontSize="20">Contact</TextBlock>
+                                    <TextBlock Foreground="White" FontFamily="Comic Sans MS" >Last :</TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Border Grid.Row="2" Background="#03002B" BorderThickness="0">
+                <StackPanel  Orientation="Horizontal" Margin="0,7,0,0">
+
+                    <Image Source="/Google_Contacts_icon.svg.png" Height="35" Width="35" Margin="5,5"></Image>
+                    <StackPanel>
+                        <TextBlock Foreground="White" FontFamily="Comic Sans MS" FontSize="20">Contact</TextBlock>
+                        <TextBlock Foreground="White" FontFamily="Comic Sans MS" >Last :</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="250,-365,-610,85" Panel.ZIndex="-1" >
+
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="50"></RotateTransform>
+                </Grid.RenderTransform>
+                <StackPanel Orientation="Horizontal" Margin="-350,250,-255,-250">
+                    <StackPanel>
+
+                        <Border CornerRadius="20" Background="#16b695" Width="700" Height="35" Margin="150,0,0,0"></Border>
+                        <Border CornerRadius="20" Background="#29518a" Width="700" Height="35" Margin="0,15,0,0"></Border>
+                        <Border CornerRadius="20" Background="#f47847" Width="700" Height="35" Margin="75,15,0,0"></Border>
+                    </StackPanel>
+
+                    <StackPanel Name="Stripts">
+
+                        <Border CornerRadius="20" Background="#16b695" Width="700" Height="35" Margin="150,0,0,0"></Border>
+                        <Border CornerRadius="20" Background="#29518a" Width="700" Height="35" Margin="0,15,0,0"></Border>
+                        <Border CornerRadius="20" Background="#f47847" Width="700" Height="35" Margin="75,15,0,0"></Border>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Background="Transparent" BorderThickness="0" Grid.Column="0" Margin="7,0,0,0" Width="35">
+                    <Image Source="/завантаження.png" />
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Grid.Column="2" Margin="-5,0,0,0" Width="35" VerticalAlignment="Center">
+                    <Image Source="/4731946.png" />
+                </Button>
+                <TextBox Grid.ColumnSpan="3" Panel.ZIndex="-1">
+                    <TextBox.Template>
+                        <ControlTemplate>
+                            <Border CornerRadius="5" BorderThickness="0" Background="#141137" Margin="5">
+                                <TextBox Background="Transparent" BorderThickness="0" FontSize="25" Foreground="White" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="35,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
+            </Grid>
+             <ListBox Grid.Row="1" Background="Transparent" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Google_Contacts_icon.svg.png" Height="35" Width="35" Margin="5,5"/>
+                        <TextBlock Foreground="White" FontFamily="Comic Sans MS" FontSize="20" Text="Contact"/> 
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Border Background="#141139">
+                <TextBlock  Foreground="White" FontSize="20" VerticalAlignment="Center" FontFamily="Comic Sans MS" Margin="10,0,0,0" >Name Chat</TextBlock>
+            </Border>
+            
+        </Grid>
+      
+        </Grid>
+</Window>
