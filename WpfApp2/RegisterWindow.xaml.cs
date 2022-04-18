@@ -41,11 +41,21 @@ namespace WpfApp2
             string email = email_tb.Text;
             string pass = pass_tb.Password;
 
+            // Username field validations
             if (username_tb.Text == "")
             {
                 MessageBox.Show("Enter something to the username field. Your friends will look for you by it");
                 return;
             }
+            if (username_tb.Text.Contains(" "))
+            {
+                MessageBox.Show("Enter something else to the username field. There is no spaces allowed");
+                return;
+            }
+            //Check via DB
+            //if (username_tb.Text is unique)
+
+            // E-Mail field validations
             if (email_tb.Text == "")
             {
                 MessageBox.Show("Enter something to the E-Mail field. We will verificate you by it");
@@ -56,9 +66,16 @@ namespace WpfApp2
                 MessageBox.Show("I don`t think entered E-Mail is correct. Check it one more time. We will verificate you by this E-Mail");
                 return;
             }
+
+            // Password fields validations
             if (pass_tb.Password == "")
             {
                 MessageBox.Show("Enter something to the password field. You will need it at next authorization");
+                return;
+            }
+            if (pass_tb.Password.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 symbols or it won`t be safe");
                 return;
             }
             if (pass_tb.Password != confirmPass_tb.Password)

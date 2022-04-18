@@ -23,16 +23,30 @@ namespace WpfApp2
 
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
+            // Username validation
             if (username_tb.Text == "")
             {
                 MessageBox.Show("Enter something to the username field.");
                 return;
             }
+            if (username_tb.Text.Contains(" "))
+            {
+                MessageBox.Show("Enter something else to the username field. There is no spaces allowed");
+                return;
+            }
+
+            // Password validation
             if (pass_tb.Password == "")
             {
                 MessageBox.Show("Enter something to the password field.");
                 return;
             }
+            if (pass_tb.Password.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 symbols or it won`t be safe");
+                return;
+            }
+
             MainTextingWindow textingWindow = new MainTextingWindow();
             textingWindow.Show();
             // TODO : Checking credentials via DB
