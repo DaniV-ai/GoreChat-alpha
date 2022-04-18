@@ -47,6 +47,8 @@ namespace WpfApp2
                 return;
             }
 
+            MainTextingWindow textingWindow = new MainTextingWindow();
+            textingWindow.Show();
             // TODO : Checking credentials via DB
 
             // Connecting DB
