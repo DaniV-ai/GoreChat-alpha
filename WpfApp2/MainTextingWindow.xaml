@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="GoreChat" Height="450" Width="800" Icon="/logo-image.png" Background="#1f1c59" SizeChanged="Window_SizeChanged">
+        Title="GoreChat" Height="450" Width="1200" Icon="/logo-image.png" Background="#1f1c59" SizeChanged="Window_SizeChanged" MinWidth="820" MinHeight="450">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#141139" MinWidth="200">
+        <Grid Background="#141139" MinWidth="200" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
