@@ -21,6 +21,8 @@ using MailKit.Net.Imap;
 using MailKit.Net.Smtp;
 using MailKit.Search;
 using MailKit.Security;
+using Entity_Classes;
+
 namespace WpfApp2
 {
     /// <summary>
@@ -98,6 +100,17 @@ namespace WpfApp2
 
             if (confirmWindow.DialogResult.Value)
             {
+                //add
+                ChatDB chat = new ChatDB();
+                User user = new User();
+                user.Username = username_tb.Text;
+                user.Email = email_tb.Text;
+                if (pass_tb.Password == confirmPass_tb.Password)
+                {
+                    user.Hash = pass_tb.Password;
+                    chat.Users.Add(user);
+                    chat.SaveChanges();
+                }
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();

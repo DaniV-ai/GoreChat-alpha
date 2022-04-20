@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Entity Classes\EntityClasses.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="logo-image.png" />
   </ItemGroup>
 
