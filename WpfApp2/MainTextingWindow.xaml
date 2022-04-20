@@ -12,7 +12,7 @@
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#141139">
+        <Grid Background="#141139" MinWidth="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -50,16 +50,18 @@
 
             <Border Grid.Row="2" Background="#03002B" BorderThickness="0">
                 <StackPanel  Orientation="Horizontal" Margin="0,7,0,0">
-
                     <Image Source="/Google_Contacts_icon.svg.png" Height="35" Width="35" Margin="5,5"></Image>
                     <StackPanel>
                         <TextBlock Foreground="White" FontFamily="Comic Sans MS" FontSize="20">Contact</TextBlock>
                         <TextBlock Foreground="White" FontFamily="Comic Sans MS" >Last :</TextBlock>
                     </StackPanel>
+                    <Button Background="Transparent" BorderThickness="0" Grid.Column="0" Margin="30,0,0,0" Width="45" VerticalAlignment="Center">
+                        <Image Height="30" Width="30" Margin="5,5" Source="/settings_button.png"></Image>
+                    </Button>
                 </StackPanel>
             </Border>
         </Grid>
-        <Grid Grid.Column="1" >
+        <Grid Grid.Column="1" MinWidth="600">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" ></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -73,7 +75,6 @@
                 </Grid.RenderTransform>
                 <StackPanel Orientation="Horizontal" Margin="-350,250,-255,-250">
                     <StackPanel>
-
                         <Border CornerRadius="20" Background="#16b695" Width="700" Height="35" Margin="150,0,0,0"></Border>
                         <Border CornerRadius="20" Background="#29518a" Width="700" Height="35" Margin="0,15,0,0"></Border>
                         <Border CornerRadius="20" Background="#f47847" Width="700" Height="35" Margin="75,15,0,0"></Border>
@@ -93,7 +94,7 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="40"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Background="Transparent" BorderThickness="0" Grid.Column="0" Margin="7,0,0,0" Width="35">
+                <Button Background="Transparent" BorderThickness="0" Grid.Column="0" Margin="7,0,0,0" Width="35" VerticalAlignment="Center">
                     <Image Source="/завантаження.png" />
                 </Button>
                 <Button Background="Transparent" BorderThickness="0" Grid.Column="2" Margin="-5,0,0,0" Width="35" VerticalAlignment="Center">
@@ -120,7 +121,12 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Border Background="#141139">
-                <TextBlock  Foreground="White" FontSize="20" VerticalAlignment="Center" FontFamily="Comic Sans MS" Margin="10,0,0,0" >Name Chat</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Button Background="Transparent" BorderThickness="0" Grid.Column="0" Margin="5,0,0,0" Width="45" VerticalAlignment="Center">
+                        <Image Height="30" Width="30" Margin="5,5" Source="/settings_button.png"></Image>
+                    </Button>
+                    <TextBlock Foreground="White" FontSize="20" VerticalAlignment="Center" FontFamily="Comic Sans MS" Margin="10,0,0,0" >Name Chat</TextBlock>
+                </StackPanel>
             </Border>
             
         </Grid>
