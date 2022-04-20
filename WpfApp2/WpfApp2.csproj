@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="4731946.png" />
+    <None Remove="Google_Contacts_icon.svg.png" />
     <None Remove="logo-image.png" />
+    <None Remove="settings_btn.png" />
+    <None Remove="settings_button.png" />
+    <None Remove="завантаження.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="4731946.png" />
+    <Resource Include="Google_Contacts_icon.svg.png" />
     <Resource Include="logo-image.png" />
+    <Resource Include="settings_btn.png" />
+    <Resource Include="settings_button.png" />
+    <Resource Include="завантаження.png" />
   </ItemGroup>
 
 </Project>
