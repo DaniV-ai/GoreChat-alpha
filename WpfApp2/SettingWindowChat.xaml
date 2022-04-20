@@ -23,7 +23,7 @@
         </Border>
         
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Name="confirm_btn2" Foreground="White" Content="Add" FontSize="14" Click="confirm_btn_Click" Margin="15,0,0,0">
+            <Button Name="confirm_btn2" Foreground="White" Content="Add" FontSize="14" Margin="15,0,0,0">
             <Button.Style>
                 <Style TargetType="Button">
                         <Setter Property="Background" Value="#29518a"></Setter>
@@ -51,7 +51,7 @@
             </Border>
 
         </StackPanel>
-        <Button Grid.Row="3"  Name="confirm_btn3" Foreground="White" Content="Leave" FontSize="14"  Margin="0,10,0,0" Click="confirm_btn_Click">
+        <Button Grid.Row="3"  Name="confirm_btn3" Foreground="White" Content="Leave" FontSize="14"  Margin="0,10,0,0">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Background" Value="#801C1A"></Setter>

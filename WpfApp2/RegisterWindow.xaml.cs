@@ -22,6 +22,7 @@ using MailKit.Net.Smtp;
 using MailKit.Search;
 using MailKit.Security;
 using Entity_Classes;
+using System.Security.Cryptography;
 
 namespace WpfApp2
 {
@@ -123,12 +124,19 @@ namespace WpfApp2
                 User user = new User();
                 user.Username = username_tb.Text;
                 user.Email = email_tb.Text;
-                if (pass_tb.Password == confirmPass_tb.Password)
-                {
-                    user.Hash = pass_tb.Password;
-                    chat.Users.Add(user);
-                    chat.SaveChanges();
-                }
+                
+                byte[] hash;
+                byte[] password = Encoding.ASCII.GetBytes(pass_tb.Password);
+
+                SHA256 mySHA256 = SHA256.Create();
+                hash = mySHA256.ComputeHash(password);
+
+
+                user.Hash = Encoding.ASCII.GetString(hash);
+                MessageBox.Show(user.Hash);
+                chat.Users.Add(user);
+                chat.SaveChanges();
+                
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
