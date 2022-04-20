@@ -4,14 +4,16 @@ using Entity_Classes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Entity_Classes.Migrations
 {
     [DbContext(typeof(ChatDB))]
-    partial class ChatDBModelSnapshot : ModelSnapshot
+    [Migration("20220420081802_AddClassesFromDiagram")]
+    partial class AddClassesFromDiagram
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
