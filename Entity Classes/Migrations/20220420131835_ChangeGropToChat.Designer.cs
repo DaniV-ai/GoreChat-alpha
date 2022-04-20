@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Classes.Migrations
 {
     [DbContext(typeof(ChatDB))]
-    [Migration("20220420081802_AddClassesFromDiagram")]
-    partial class AddClassesFromDiagram
+    [Migration("20220420131835_ChangeGropToChat")]
+    partial class ChangeGropToChat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Entity_Classes.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Entity_Classes.Group", b =>
+            modelBuilder.Entity("Entity_Classes.Chat", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,11 +36,14 @@ namespace Entity_Classes.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<int>("UsersCount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("GroupPicId");
 
-                    b.ToTable("Groups");
+                    b.ToTable("Chats");
                 });
 
             modelBuilder.Entity("Entity_Classes.Message", b =>
@@ -50,29 +53,24 @@ namespace Entity_Classes.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateTimeOfSend")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("GroupId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReceiverId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SenderId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("ChatId");
 
-                    b.HasIndex("ReceiverId");
-
-                    b.HasIndex("SenderId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Messages");
                 });
@@ -90,30 +88,6 @@ namespace Entity_Classes.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductImage");
-                });
-
-            modelBuilder.Entity("Entity_Classes.Receiver", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Receivers");
-                });
-
-            modelBuilder.Entity("Entity_Classes.Sender", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Senders");
                 });
 
             modelBuilder.Entity("Entity_Classes.User", b =>
@@ -148,14 +122,14 @@ namespace Entity_Classes.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Entity_Classes.UserToGroup", b =>
+            modelBuilder.Entity("Entity_Classes.UserToChat", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("GroupId")
+                    b.Property<int>("ChatId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -163,14 +137,14 @@ namespace Entity_Classes.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("ChatId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UsersToGroups");
+                    b.ToTable("UsersToChats");
                 });
 
-            modelBuilder.Entity("Entity_Classes.Group", b =>
+            modelBuilder.Entity("Entity_Classes.Chat", b =>
                 {
                     b.HasOne("Entity_Classes.ProductImage", "GroupPic")
                         .WithMany()
@@ -181,27 +155,21 @@ namespace Entity_Classes.Migrations
 
             modelBuilder.Entity("Entity_Classes.Message", b =>
                 {
-                    b.HasOne("Entity_Classes.Group", "Group")
+                    b.HasOne("Entity_Classes.Chat", "Chat")
                         .WithMany("Messages")
-                        .HasForeignKey("GroupId");
-
-                    b.HasOne("Entity_Classes.Receiver", "Receiver")
-                        .WithMany("Messages")
-                        .HasForeignKey("ReceiverId")
+                        .HasForeignKey("ChatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entity_Classes.Sender", "Sender")
+                    b.HasOne("Entity_Classes.User", "User")
                         .WithMany("Messages")
-                        .HasForeignKey("SenderId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Group");
+                    b.Navigation("Chat");
 
-                    b.Navigation("Receiver");
-
-                    b.Navigation("Sender");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Entity_Classes.User", b =>
@@ -213,45 +181,37 @@ namespace Entity_Classes.Migrations
                     b.Navigation("ProfilePic");
                 });
 
-            modelBuilder.Entity("Entity_Classes.UserToGroup", b =>
+            modelBuilder.Entity("Entity_Classes.UserToChat", b =>
                 {
-                    b.HasOne("Entity_Classes.Group", "Group")
-                        .WithMany("UsersToGroups")
-                        .HasForeignKey("GroupId")
+                    b.HasOne("Entity_Classes.Chat", "Chat")
+                        .WithMany("UsersToChats")
+                        .HasForeignKey("ChatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Entity_Classes.User", "User")
-                        .WithMany("UsersToGroups")
+                        .WithMany("UsersToChats")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Group");
+                    b.Navigation("Chat");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Entity_Classes.Group", b =>
+            modelBuilder.Entity("Entity_Classes.Chat", b =>
                 {
                     b.Navigation("Messages");
 
-                    b.Navigation("UsersToGroups");
-                });
-
-            modelBuilder.Entity("Entity_Classes.Receiver", b =>
-                {
-                    b.Navigation("Messages");
-                });
-
-            modelBuilder.Entity("Entity_Classes.Sender", b =>
-                {
-                    b.Navigation("Messages");
+                    b.Navigation("UsersToChats");
                 });
 
             modelBuilder.Entity("Entity_Classes.User", b =>
                 {
-                    b.Navigation("UsersToGroups");
+                    b.Navigation("Messages");
+
+                    b.Navigation("UsersToChats");
                 });
 #pragma warning restore 612, 618
         }

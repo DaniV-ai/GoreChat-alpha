@@ -21,12 +21,11 @@ namespace Entity_Classes
             optionsBuilder.UseSqlServer(@"data source=DESKTOP-67V0U0H;initial catalog=ChatDBcontext;integrated security=True");
             base.OnConfiguring(optionsBuilder);
         }
+        //Update-Database
         public DbSet<User> Users { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<UserToGroup> UsersToGroups { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<UserToChat> UsersToChats { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<Sender> Senders { get; set; }
-        public DbSet<Receiver> Receivers { get; set; }
     }
     public class ProductImage
     {
@@ -44,28 +43,32 @@ namespace Entity_Classes
         public string Hash { get; set; }
         public ProductImage ProfilePic { get; set; }
         [Required]
-        public ICollection<UserToGroup> UsersToGroups { get; set; }
+        public ICollection<UserToChat> UsersToChats { get; set; }
+        [Required]
+        public ICollection<Message> Messages { get; set; }
 
     }
-    public class Group
+    public class Chat
     {
         public int Id { get; set; }
         [Required, MaxLength(200)]
         public string Name { get; set; }
         public ProductImage GroupPic { get; set; }
         [Required]
-        public ICollection<UserToGroup> UsersToGroups { get; set; }
+        public ICollection<UserToChat> UsersToChats { get; set; }
         [Required]
         public ICollection<Message> Messages { get; set; }
+        [Required]
+        public int UsersCount { get; set; }
 
     }
-    public class UserToGroup
+    public class UserToChat
     {
         public int Id { get; set; }
         [Required]
         public User User { get; set; }
         [Required]
-        public Group Group { get; set; }
+        public Chat Chat { get; set; }
     }
     public class Message
     {
@@ -73,26 +76,11 @@ namespace Entity_Classes
         [Required]
         public string Text { get; set; }
         [Required]
-        public Receiver Receiver { get; set; }
-        [Required]
-        public Sender Sender { get; set; }
+        public User User { get; set; }
         [Required]
         public DateTime DateTimeOfSend { get; set; }
-        public Group Group { get; set; }
-
-    }
-    public class Sender
-    {
-        public int Id { get; set; }
         [Required]
-        public ICollection<Message> Messages { get; set; }
-
-    }
-    public class Receiver
-    {
-        public int Id { get; set; }
-        [Required]
-        public ICollection<Message> Messages { get; set; }
+        public Chat Chat { get; set; }
 
     }
 }
